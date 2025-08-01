@@ -142,11 +142,10 @@
         <div class="hero">
           <div class="hero-content text-center">
             <div class="max-w-md">
-              <h1 class="text-5xl font-bold">👋</h1>
-              <h2 class="text-2xl font-bold py-6">欢迎使用 ChatGPT Mock</h2>
+              <h2 class="text-2xl font-bold py-6">欢迎使用 EasyAiChat</h2>
               <p class="py-6">
-                这是一个基于 Vue 3 开发的 ChatGPT 模拟界面。您可以在下方输入框中输入问题，体验 AI
-                对话的乐趣！
+                这是一个基于 Vue 3 开发的现代化 AI 聊天界面。支持多对话管理、Markdown
+                渲染、主题切换等丰富功能， 让您享受流畅的 AI 对话体验！
               </p>
 
               <!-- 模型选择器 -->
@@ -214,6 +213,7 @@
               <div class="mt-8 text-sm opacity-60">
                 <p>💡 小贴士：</p>
                 <p>• 使用 Ctrl+K 快速清空对话</p>
+                <p>• 使用 Ctrl+B 切换侧边栏</p>
                 <p>• 使用 Ctrl+/ 切换明暗主题</p>
               </div>
             </div>
@@ -223,31 +223,26 @@
 
       <!-- 消息列表 -->
       <div v-for="message in messages" :key="message.id" class="group">
-        <ChatMessage :message="message" />
+        <Message
+          :dateTime="formatTime(message.timestamp)"
+          :text="message.content"
+          :inversion="message.role === 'user'"
+          :error="message.error || false"
+          :loading="false"
+          @regenerate="handleRegenerate(message)"
+          @delete="handleDeleteMessage(message.id)"
+        />
       </div>
 
       <!-- 加载中提示 -->
-      <div v-if="isLoading" class="message-container">
-        <div class="flex justify-start mb-3">
-          <div class="flex items-start space-x-3 max-w-[70%]">
-            <div class="flex flex-col items-center">
-              <div
-                class="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center text-white text-xs font-bold"
-              >
-                AI
-              </div>
-            </div>
-
-            <div class="ai-thinking-container flex-1">
-              <div class="ai-thinking-content">
-                <div class="flex items-center space-x-2">
-                  <span class="loading loading-dots loading-sm"></span>
-                  <span>AI 正在思考...</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div v-if="isLoading">
+        <Message
+          :dateTime="formatTime(new Date())"
+          text=""
+          :inversion="false"
+          :error="false"
+          :loading="true"
+        />
       </div>
     </div>
 
@@ -284,7 +279,7 @@ import { useChatStore } from '@/stores/chat'
 import { useAutoScroll } from '@/composables/useAutoScroll'
 import { useToast } from '@/composables/useToast'
 import { exportChatAsMarkdown, exportChatToMarkdown, copyToClipboard } from '@/utils/export'
-import ChatMessage from './ChatMessage.vue'
+import Message from './Message/index.vue'
 
 const chatStore = useChatStore()
 const { messages, isLoading, hasMessages, currentModel } = storeToRefs(chatStore)
@@ -351,6 +346,30 @@ const exportAsMarkdown = () => {
 }
 
 // 复制全部对话
+// 时间格式化函数
+const formatTime = (timestamp) => {
+  if (!timestamp) return ''
+  const date = new Date(timestamp)
+  return date.toLocaleTimeString('zh-CN', {
+    hour: '2-digit',
+    minute: '2-digit',
+  })
+}
+
+// 处理重新生成
+const handleRegenerate = async (message) => {
+  if (message.role === 'assistant') {
+    // 重新生成AI回复
+    await chatStore.simulateAIResponse(message.content)
+  }
+}
+
+// 处理删除消息
+const handleDeleteMessage = (messageId) => {
+  chatStore.deleteMessage(messageId)
+  showToast('消息已删除', 'success')
+}
+
 const copyAllMessages = async () => {
   try {
     const markdown = exportChatToMarkdown(messages.value)

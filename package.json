@@ -1,6 +1,7 @@
 {
-  "name": "chatgpt-mock-web",
-  "version": "0.0.0",
+  "name": "easy-ai-chat",
+  "version": "1.0.0",
+  "description": "一个基于 Vue 3 的现代化 AI 聊天界面，支持多对话管理、Markdown 渲染、代码高亮等功能",
   "private": true,
   "type": "module",
   "engines": {
@@ -15,11 +16,14 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",
+    "@vscode/markdown-it-katex": "^1.1.2",
     "@vueuse/core": "^13.6.0",
     "daisyui": "^5.0.50",
     "github-markdown-css": "^5.8.1",
     "highlight.js": "^11.11.1",
+    "katex": "^0.16.22",
     "markdown-it": "^14.1.0",
+    "markdown-it-link-attributes": "^4.0.1",
     "pinia": "^3.0.3",
     "tailwindcss": "^4.1.11",
     "vue": "^3.5.18",

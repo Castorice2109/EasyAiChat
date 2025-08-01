@@ -1,0 +1,185 @@
+/* 深色主题的代码高亮 */
+[data-theme='dark'] pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+[data-theme='dark'] code.hljs {
+  padding: 3px 5px;
+}
+
+[data-theme='dark'] .hljs {
+  color: #abb2bf;
+  background: #282c34;
+}
+
+[data-theme='dark'] .hljs-keyword,
+[data-theme='dark'] .hljs-operator,
+[data-theme='dark'] .hljs-pattern-match {
+  color: #f92672;
+}
+
+[data-theme='dark'] .hljs-function,
+[data-theme='dark'] .hljs-pattern-match .hljs-constructor {
+  color: #61aeee;
+}
+
+[data-theme='dark'] .hljs-function .hljs-params {
+  color: #a6e22e;
+}
+
+[data-theme='dark'] .hljs-function .hljs-params .hljs-typing {
+  color: #fd971f;
+}
+
+[data-theme='dark'] .hljs-module-access .hljs-module {
+  color: #7e57c2;
+}
+
+[data-theme='dark'] .hljs-constructor {
+  color: #e2b93d;
+}
+
+[data-theme='dark'] .hljs-constructor .hljs-string {
+  color: #9ccc65;
+}
+
+[data-theme='dark'] .hljs-comment,
+[data-theme='dark'] .hljs-quote {
+  color: #b18eb1;
+  font-style: italic;
+}
+
+[data-theme='dark'] .hljs-doctag,
+[data-theme='dark'] .hljs-keyword,
+[data-theme='dark'] .hljs-formula {
+  color: #c678dd;
+}
+
+[data-theme='dark'] .hljs-section,
+[data-theme='dark'] .hljs-name,
+[data-theme='dark'] .hljs-selector-tag,
+[data-theme='dark'] .hljs-deletion,
+[data-theme='dark'] .hljs-subst {
+  color: #e06c75;
+}
+
+[data-theme='dark'] .hljs-literal {
+  color: #56b6c2;
+}
+
+[data-theme='dark'] .hljs-string,
+[data-theme='dark'] .hljs-regexp,
+[data-theme='dark'] .hljs-addition,
+[data-theme='dark'] .hljs-attribute,
+[data-theme='dark'] .hljs-meta .hljs-string {
+  color: #98c379;
+}
+
+[data-theme='dark'] .hljs-attr,
+[data-theme='dark'] .hljs-variable,
+[data-theme='dark'] .hljs-template-variable,
+[data-theme='dark'] .hljs-type,
+[data-theme='dark'] .hljs-selector-class,
+[data-theme='dark'] .hljs-selector-attr,
+[data-theme='dark'] .hljs-selector-pseudo,
+[data-theme='dark'] .hljs-number {
+  color: #d19a66;
+}
+
+[data-theme='dark'] .hljs-symbol,
+[data-theme='dark'] .hljs-title {
+  color: #61aeee;
+}
+
+[data-theme='dark'] .hljs-emphasis {
+  font-style: italic;
+}
+
+[data-theme='dark'] .hljs-strong {
+  font-weight: 700;
+}
+
+[data-theme='dark'] .hljs-link {
+  text-decoration: underline;
+}
+
+/* 浅色主题的代码高亮 */
+pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+code.hljs {
+  padding: 3px 5px;
+}
+
+.hljs {
+  color: #24292f;
+  background: #f6f8fa;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #6a737d;
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-title,
+.hljs-section,
+.hljs-doctag,
+.hljs-type,
+.hljs-name {
+  color: #d73a49;
+}
+
+.hljs-string,
+.hljs-attribute {
+  color: #032f62;
+}
+
+.hljs-number,
+.hljs-regexp,
+.hljs-link {
+  color: #005cc5;
+}
+
+.hljs-symbol,
+.hljs-bullet,
+.hljs-formula {
+  color: #e36209;
+}
+
+.hljs-built_in,
+.hljs-builtin-name {
+  color: #6f42c1;
+}
+
+.hljs-meta {
+  color: #6a737d;
+}
+
+.hljs-deletion {
+  background: #ffeef0;
+}
+
+.hljs-addition {
+  background: #f0fff4;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: 700;
+}

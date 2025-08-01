@@ -18,6 +18,14 @@ export function useKeyboardShortcuts(shortcuts = {}) {
       }
     }
 
+    // Ctrl/Cmd + B: 切换侧边栏
+    if ((event.ctrlKey || event.metaKey) && event.key === 'b') {
+      event.preventDefault()
+      if (shortcuts.toggleSidebar) {
+        shortcuts.toggleSidebar()
+      }
+    }
+
     // Esc: 取消当前请求（如果正在加载）
     if (event.key === 'Escape') {
       if (shortcuts.cancelRequest) {

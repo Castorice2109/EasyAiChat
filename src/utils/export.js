@@ -43,7 +43,7 @@ export function exportChatAsMarkdown(messages) {
 
   const markdown = exportChatToMarkdown(messages)
   const timestamp = new Date().toISOString().slice(0, 10)
-  const filename = `chatgpt-conversation-${timestamp}.md`
+  const filename = `easy-ai-chat-conversation-${timestamp}.md`
 
   downloadAsFile(markdown, filename)
 }
